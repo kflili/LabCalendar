@@ -21,6 +21,6 @@ namespace LabCalendar.Models
 
         public string ThemeColor { get; set; }
 
-        public byte IsFullDay { get; set; }
+        public bool IsFullDay { get; set; }
     }
 }
