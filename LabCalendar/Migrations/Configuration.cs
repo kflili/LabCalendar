@@ -45,7 +45,7 @@ namespace LabCalendar.Migrations
                     Subject = "Drew",
                     Description = "Resistance measurement",
                     Start = DateTime.Parse("2017-07-17 9:00 AM"),
-                    End = DateTime.Parse("2017-07-17 9:00 AM"),
+                    End = DateTime.Parse("2017-07-17 5:00 PM"),
                     ThemeColor = "green",
                     IsFullDay = false
                 }
