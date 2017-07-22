@@ -7,6 +7,22 @@
 
 <div id="calendar"></div>
 
+<div id="eventModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><span id="eventTitle"></span></h4>
+            </div>
+            <div class="modal-body">
+                <p id="eventDetails"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print"/>
@@ -16,13 +32,71 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            GenerateCalendar();
+        $(document).ready(function (events) {
+            var events = [];
+            $.ajax({
+                method: "GET",
+                url: "/home/GetEvents",
+                success: function (data) {
+                    $.each(data, function (i, v) {
+                        events.push({
+                            title: v.Subject,
+                            description: v.Description,
+                            start: moment(v.Start),
+                            end: v.End != null ? moment(v.End) : null,
+                            color: v.ThemeColor
+                        });
+                    });
+
+                    GenerateCalendar(events);
+                },
+                error: function (error) {
+                    alert("failed");
+                }
+            })
             function GenerateCalendar(events) {
                 $('#calendar').fullCalendar('destroy');
-                $('#calendar').fullCalendar({})
+                $('#calendar').fullCalendar({
+                    contentHeight: 400,
+                    // hide the all day slot in agenda view
+                    allDaySlot: false,
+                    defaultDate: new Date(),
+                    // scroll time range in agenda view
+                    minTime: "07:00:00",
+                    maxTime: "20:00:00",
+                    // show start and end time in event content
+                    displayEventTime: true,
+                    displayEventEnd: true,
+
+                    businessHours: {
+                        // days of week. an array of zero-based day of week integers (0=Sunday)
+                        dow: [1, 2, 3, 4, 5], // Monday - Thursday
+
+                        start: '08:00', // a start time (8am in this example)
+                        end: '18:00', // an end time (6pm in this example)
+                    },
+                    timeFormat: 'h(:mm)a',
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek'
+                    },
+                    eventLimit: true,
+                    eventColor: '#378006',
+                    events: events,
+                    eventClick: function (callEvent, jsEvent, view) {
+                        // add event title in the modal
+                        $('#eventModal #eventTitle').text("User:  " + callEvent.title);
+                        // add event details in the modal
+                        var $start = $('<p>').html('<b>Start:</b>  ' + callEvent.start.format("MMM Do YYYY, h:mm a"));
+                        var $end = $('<p>').html('<b>End:</b>  ' + callEvent.end.format("MMM Do YYYY, h:mm a"));
+                        var $description = $('<p>').html('<b>Description:</b>  ' + callEvent.description);
+                        $('#eventModal #eventDetails').empty().append($start, $end, $description);
+                        // show the modal
+                        $('#eventModal').modal();
+                    }
+                })
             }
         })
     </script>
-
 }
