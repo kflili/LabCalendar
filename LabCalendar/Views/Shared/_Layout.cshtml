@@ -6,6 +6,8 @@
     <title>Lab Booking Calendar</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
@@ -18,9 +20,15 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Lab Booking Calendar", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    <li>
+                        <button href="//github.com/kflili/LabCalendar" type="button" class="btn btn-default navbar-btn">
+                            <i class="fa fa-github fa-lg" aria-hidden="true"></i> Source code on GitHub
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -30,7 +38,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Li Li</p>
         </footer>
     </div>
 
