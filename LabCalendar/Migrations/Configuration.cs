@@ -36,8 +36,9 @@ namespace LabCalendar.Migrations
                     Subject = "Athena",
                     Description = "Magnetism measurement",
                     Start = DateTime.Parse("2017-07-15 9:00 AM"),
+                    End = DateTime.Parse("2017-07-15 5:00 PM"),
                     ThemeColor = "red",
-                    IsFullDay = true
+                    IsFullDay = false
                 },
 
                 new Event
