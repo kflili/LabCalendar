@@ -31,25 +31,17 @@ namespace LabCalendar.Migrations
 
             var events = new List<Event>
             {
-                new Event
-                {
-                    Subject = "Athena",
-                    Description = "Magnetism measurement",
-                    Start = DateTime.Parse("2017-07-15 9:00 AM"),
-                    End = DateTime.Parse("2017-07-15 5:00 PM"),
-                    ThemeColor = "red",
-                    IsFullDay = false
-                },
+                //new Event
+                //{
+                //    Subject = "Athena",
+                //    Description = "Magnetism measurement",
+                //    Start = DateTime.Parse("2017-07-15 09:00"),
+                //    End = DateTime.Parse("2017-07-15 17:00"),
+                //    ThemeColor = "red",
+                //    IsFullDay = false
+                //},
 
-                new Event
-                {
-                    Subject = "Drew",
-                    Description = "Resistance measurement",
-                    Start = DateTime.Parse("2017-07-17 9:00 AM"),
-                    End = DateTime.Parse("2017-07-17 5:00 PM"),
-                    ThemeColor = "green",
-                    IsFullDay = false
-                }
+                
             };
             events.ForEach(e => context.Events.AddOrUpdate(p => p.Subject, e));
             context.SaveChanges();
