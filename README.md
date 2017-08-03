@@ -3,8 +3,7 @@
 Designed and developed 	an online booking system for management 
 and scheduling of lab equipment. It provides a centralized calendar 
 and sign up facility to enable members of the lab to schedule usage 
-of various resources in the lab. Organized meetings with group members 
-to collect requirements evaluate needs and improve customer satisfaction. 
+of various resources in the lab. 
 
 ### Achievement
 
