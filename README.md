@@ -24,9 +24,26 @@ to collect requirements evaluate needs and improve customer satisfaction.
 
 ### Tools
 
-- Visual Studio 2015
+- Visual Studio 2017
 - SQL Express LocalDB
 - IIS express
 - NuGet Package Manager
-- GitHub extension in VS2015
+- GitHub extension in VS2017
 - Windows Azure platform
+
+### Installation instructions
+
+Requirements:
+
+- Visual Studio 2017
+- SQL Server Express LocalDB (to run locally)
+
+To run the sample locally from Visual Studio:
+- Download the source code and open the solution file in Visual 
+Studio
+- Build the solution.
+- Open the Package Manager Console (Tools > NuGet Package 
+Manager > Package Manager Console)
+- In the Package Manager Console window, enter the following 
+command: Update-Database
+- Press F5 to debug
