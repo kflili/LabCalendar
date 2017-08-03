@@ -1,7 +1,7 @@
 ﻿# Lab Equipment Booking System 
 
-Designed and developed 	an online booking system for management 
-and scheduling of lab equipment. It provides a centralized calendar 
+Designed and developed a single page application for an online booking 
+system for management and scheduling of lab equipment. It provides a centralized calendar 
 and sign up facility to enable members of the lab to schedule usage 
 of various resources in the lab. 
 
