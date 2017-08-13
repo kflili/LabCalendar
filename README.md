@@ -5,6 +5,8 @@ and scheduling of lab equipment. It provides a centralized calendar
 and sign up facility to enable members of the lab to schedule usage 
 of various resources in the lab. 
 
+Demo site hosted on Azure: http://labcalendardemo.azurewebsites.net/
+
 ### Achievement
 
 - Designed the web application with ASP.NET MVC framework
