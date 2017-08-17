@@ -7,6 +7,7 @@ of various resources in the lab.
 
 Demo site hosted on Azure: http://labcalendardemo.azurewebsites.net/
 
+![The capture of demo site](labcalendar.png)
 ### Achievement
 
 - Designed the web application with ASP.NET MVC framework
